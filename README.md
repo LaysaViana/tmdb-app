@@ -1,69 +1,65 @@
-# React + TypeScript + Vite
+# Bem-vindo ao TMDB-APP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é um aplicativo web responsivo desenvolvido com React e TypeScript, utilizando Vite para agilizar o build e o desenvolvimento. O app consome a TMDB API, permitindo que os usuários pesquisem filmes por título, filtrem por gênero e visualizem detalhes completos de cada filme ao clicar em seus respectivos cards.
 
-Currently, two official plugins are available:
+O design segue padrões modernos e utiliza Radix Colors para gerenciar temas claros e escuros, garantindo uma interface acessível e consistente. Os estilos são implementados com Styled Components, proporcionando componentização, encapsulamento de estilos e suporte a temas, o que facilita a manutenção e a escalabilidade do projeto.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Para a busca e gerenciamento de dados da API, o projeto utiliza **React Query** em conjunto com **Axios**. O Axios é usado para fazer requisições HTTP de forma simples e eficiente, enquanto o React Query gerencia o cache, o estado de carregamento e a refetch automática dos dados, garantindo uma experiência de usuário mais fluida e performática.
 
-## Expanding the ESLint configuration
+## Tecnologias Utilizadas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React**: Biblioteca JavaScript para criar interfaces de usuário.
+- **TypeScript**: Superset do JavaScript com tipagem estática.
+- **Vite**: Build tool que acelera o processo de desenvolvimento.
+- **Styled Components**: Para componentização de estilos e suporte a temas.
+- **TMDB API**: API pública para informações sobre filmes.
+- **React Query + Axios**: Para gerenciamento de dados assíncronos e cache eficiente.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Instalação
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Clone o repositório
+
+```
+git clone https://github.com/seu-usuario/seu-repositorio.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Entre na pasta do projeto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+cd seu-repositorio
+```
+
+### 2. Instale as dependências necessárias:
+
+```
+npm install
+```
+
+### 3. Recomendo usar versão do Node.js
+
+```
+22.18
+```
+
+### 4. Execute o Projeto
+
+Para iniciar o servidor de desenvolvimento, execute o comando:
+
+```
+npm run dev
+```
+
+### 5. Links úteis para o desenvolvimento deste projeto
+
+- [TMDB](https://www.themoviedb.org)
+- [Guia da API do TMDB](https://developer.themoviedb.org/docs/getting-started)
+- [Desafio Técnico](https://git.cubos.io/cubos/desafios-tecnicos/desafio-tecnico-web)
+- [Design no Figma](www.figma.com/design/yhag2s5vJBXMgyGabBIA3Y/Cubos---Movies?node-id=0-1&t=f1K6aQtNcXdTXQla-0)
+- [Radix colors](https://www.radix-ui.com/colors)
+- [Lets Icon](www.figma.com/design/TKBIZengDI2kqu3Wh0VFSo/Free-Icon-Pack-1700--icons--Community-?node-id=1354-29521)
+
+### Contribuição
+
+- Laysa Viana
