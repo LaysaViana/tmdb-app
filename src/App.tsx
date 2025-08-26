@@ -1,14 +1,29 @@
+import { ThemeProvider } from 'styled-components';
+import { AppContainer } from './App.styles';
 
-import './App.css'
+import { useState } from 'react';
+import { themes } from './theme';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-function App() {
+import Home from './pages/Home/Home';
+import Navbar from './components/Navbar/Navbar';
+
+const queryClient = new QueryClient();
+
+export default function App() {
+  const [darkMode, setDarkMode] = useState(true); 
+  const theme = darkMode ? themes.dark : themes.light;
+
   return (
-    <div className="App">
-      <h1>TMDB App</h1>
-      {/* componentes de busca, listagem dos filmes, etc */}
-    </div>
-  )
+    <QueryClientProvider client={queryClient}>
+    <ThemeProvider theme={theme}>
+      <AppContainer>
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+        <main>
+          <Home />
+        </main>
+      </AppContainer>
+    </ThemeProvider>
+    </QueryClientProvider>
+  );
 }
-
-
-export default App
