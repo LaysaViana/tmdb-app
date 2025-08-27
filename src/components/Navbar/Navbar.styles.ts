@@ -1,22 +1,12 @@
 import styled from 'styled-components';
 import { mq } from '../../theme';
-
 export const Nav = styled.nav`
-  width: 100%;
   background-color: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.textPrimary};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing.md} ${({ theme }) => theme.spacing.lg};
-
-  ${mq('tablet')} {
-    padding: 1rem 2rem;
-  }
-
-  ${mq('desktop')} {
-    padding: 1rem 3rem;
-  }
+  padding: 1rem;
 `;
 
 export const Left = styled.div`
@@ -43,7 +33,7 @@ export const AppIcon = styled.img`
   width: 40px;
   height: 40px;
 
-   ${mq('tablet')} {
+  ${mq('tablet')} {
     width: 50px;
     height: 50px;
   }
@@ -61,4 +51,8 @@ export const ThemeButton = styled.button`
   &:hover {
     color: ${({ theme }) => theme.colors.primaryHover};
   }
+`;
+
+export const LogoWrapper = styled.div`
+  cursor: pointer;
 `;

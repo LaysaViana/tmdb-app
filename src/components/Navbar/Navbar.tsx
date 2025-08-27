@@ -1,10 +1,14 @@
-import { Nav, Left, ThemeButton } from './Navbar.styles'; 
+import { Nav, Left, ThemeButton, LogoWrapper } from './Navbar.styles';
 
-// import { ReactComponent as SunIcon } from '../../assets/icons/Sun_fill.svg';
-// import { ReactComponent as MoonIcon } from '../../assets/icons/Moon_alt_fill.svg';
- 
- interface NavbarProps { darkMode: boolean; setDarkMode: (val: boolean) => void; } 
- 
+import SunIcon from '../../assets/icons/Sun_fill.svg';
+import MoonIcon from '../../assets/icons/Moon_alt_fill.svg';
+import LogoIcon from '../../assets/icons/logo-cubos.svg';
+import { useNavigate } from 'react-router-dom';
+
+interface NavbarProps {
+  darkMode: boolean;
+  setDarkMode: (val: boolean) => void;
+}
 
 interface NavbarProps {
   darkMode: boolean;
@@ -12,14 +16,22 @@ interface NavbarProps {
 }
 
 export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
+  const navigate = useNavigate();
+
   return (
     <Nav>
       <Left>
-        <h1>TMDB App</h1>
+        <LogoWrapper onClick={() => navigate('/')}>
+          <LogoIcon width={300} height={68} />
+        </LogoWrapper>
+        <h1>Movies</h1>
       </Left>
       <ThemeButton onClick={() => setDarkMode(!darkMode)}>
-        {/* {darkMode ? <MoonIcon width={20} height={20} /> : <SunIcon width={20} height={20} />} */}
-        {darkMode ? "🌙" : "☀️"}
+        {darkMode ? (
+          <SunIcon width={20} height={20} color="white" />
+        ) : (
+          <MoonIcon width={20} height={20} color="white" />
+        )}
       </ThemeButton>
     </Nav>
   );
