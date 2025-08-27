@@ -1,25 +1,24 @@
-import { useState } from "react";
-import { Container } from "./SearchBar.styles";
-import SearchInput from "../SearchInput/SearchInput";
-import FilterButton from "../FilterButton/FilterButton";
+import { useState } from 'react';
+
+import { Container } from './SearchBar.styles';
+import SearchInput from '../SearchInput/SearchInput';
+import FilterIcon from '../../assets/icons/Filter.svg';
+import { Button } from '../FilterButton/FilterButton.style';
 
 interface SearchBarProps {
   onSearch: (query: string, genre: string) => void;
+  onFilterClick: () => void;
 }
 
-export default function SearchBar({ onSearch }: SearchBarProps) {
-  const [query, setQuery] = useState("");
-  const [genre, setGenre] = useState("");
-
-  const handleSearch = () => {
-    onSearch(query, genre);
-  };
+export default function SearchBar({ onSearch, onFilterClick }: SearchBarProps) {
+  const [query, setQuery] = useState('');
 
   return (
     <Container>
       <SearchInput value={query} onChange={setQuery} />
-      <FilterButton value={genre} onChange={setGenre} />
-      <button onClick={handleSearch}>🔍 Buscar</button>
+      <Button onClick={onFilterClick}>
+        <FilterIcon width={20} height={20} color="white" />
+      </Button>
     </Container>
   );
 }
