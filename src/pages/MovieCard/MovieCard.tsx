@@ -1,16 +1,27 @@
-import { Card, Info, Poster } from "./Movie.styles";
+import { Card, Info, Poster } from './Movie.styles';
+import { useNavigate } from 'react-router-dom';
 
 interface MovieCardProps {
+  id: number;
   title: string;
   posterUrl: string;
   releaseDate: string;
-  onClick?: () => void;
 }
 
+export default function MovieCard({
+  id,
+  title,
+  posterUrl,
+  releaseDate,
+}: MovieCardProps) {
+  const navigate = useNavigate();
 
-export default function MovieCard({ title, posterUrl, releaseDate, onClick }: MovieCardProps) {
+  const handleClickDetails = () => {
+    navigate(`/movie/${id}`);
+  };
+
   return (
-    <Card onClick={onClick}>
+    <Card onClick={handleClickDetails}>
       <Poster src={posterUrl} alt={title} />
       <Info>
         <h3>{title}</h3>

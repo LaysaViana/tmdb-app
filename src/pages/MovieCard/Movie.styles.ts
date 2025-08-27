@@ -1,15 +1,14 @@
-
 import styled from 'styled-components';
 import { mq } from '../../theme';
 
-export const Card = styled.div` 
+export const Card = styled.div`
   width: 150px;
   background-color: ${({ theme }) => theme.colors.surface};
   color: ${({ theme }) => theme.colors.textPrimary};
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   transition: transform 0.2s;
 
   &:hover {
