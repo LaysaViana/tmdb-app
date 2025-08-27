@@ -15,7 +15,7 @@ export const mq = (bp: keyof typeof breakpoints) => `@media (min-width: ${breakp
 export const darkTheme = {
   colors: {
     background: gray.gray12,
-    surface: gray.gray11,
+    surface: '#12111380',
     textPrimary: whiteA.whiteA12,
     textSecondary: gray.gray6,
     primary: blue.blue9,
