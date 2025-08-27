@@ -1,4 +1,4 @@
-import { Input } from "./SearchInput.styles";
+import { Input, SearchIcon, Wrapper } from './SearchInput.styles';
 
 interface SearchInputProps {
   value: string;
@@ -6,13 +6,20 @@ interface SearchInputProps {
   placeholder?: string;
 }
 
-export default function SearchInput({ value, onChange, placeholder }: SearchInputProps) {
+export default function SearchInput({
+  value,
+  onChange,
+  placeholder,
+}: SearchInputProps) {
   return (
-    <Input
-      type="text"
-      placeholder={placeholder || "Pesquisar filme..."}
-      value={value}
-      onChange={(e) => onChange(e.target.value)}
-    />
+    <Wrapper>
+      <Input
+        type="text"
+        placeholder={placeholder || 'Pesquise por filmes'}
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+      <SearchIcon />
+    </Wrapper>
   );
 }
