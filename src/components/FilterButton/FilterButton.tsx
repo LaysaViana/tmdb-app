@@ -1,27 +1,41 @@
-import { useState } from "react";
-import { Button, Dropdown } from "./FilterButton.style";
+import { Container, FilterList, FilterItem } from './FilterButton.style';
+import { useFilters } from '../../hooks/useFilters';
 
 interface FilterButtonProps {
-  value: string;
-  onChange: (val: string) => void;
+  onFilterSelect: (filterType: 'genre' | 'actor', id: string) => void;
+  showFilters: boolean;
 }
 
-export default function FilterButton({ value, onChange }: FilterButtonProps) {
-  const [showFilters, setShowFilters] = useState(false);
+export default function FilterButton({
+  onFilterSelect,
+  showFilters,
+}: FilterButtonProps) {
+  const { data, isLoading } = useFilters();
+
+  if (isLoading) return null;
 
   return (
-    <div>
-      <Button onClick={() => setShowFilters((prev) => !prev)}>🎛 Filtros</Button>
+    <Container>
       {showFilters && (
-        <Dropdown value={value} onChange={(e) => onChange(e.target.value)}>
-          <option value="">Todos os gêneros</option>
-          <option value="28">Ação</option>
-          <option value="35">Comédia</option>
-          <option value="18">Drama</option>
-          <option value="27">Terror</option>
-          <option value="878">Ficção Científica</option>
-        </Dropdown>
+        <FilterList>
+          {data?.genres.map((genre) => (
+            <FilterItem
+              key={genre.id}
+              onClick={() => onFilterSelect('genre', String(genre.id))}
+            >
+              {genre.name}
+            </FilterItem>
+          ))}
+          {data?.actors.map((actor) => (
+            <FilterItem
+              key={actor.id}
+              onClick={() => onFilterSelect('actor', String(actor.id))}
+            >
+              {actor.name}
+            </FilterItem>
+          ))}
+        </FilterList>
       )}
-    </div>
+    </Container>
   );
 }
