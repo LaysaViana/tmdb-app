@@ -1,27 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { tmdb } from '../services/api';
-
-export interface Movie {
-  id: number;
-  title: string;
-  poster_path: string;
-  release_date: string;
-}
-
-interface UseMoviesProps {
-  query?: string;
-  genre?: string;
-  actor?: string;
-  page?: number;
-  perPage?: number;
-}
-
-interface MoviesResponse {
-  results: Movie[];
-  page: number;
-  total_pages: number;
-  total_results: number;
-}
+import type { MoviesResponse, UseMoviesProps } from '../types/movies';
 
 export function useMovies({
   query = '',
@@ -35,7 +14,10 @@ export function useMovies({
   return useQuery<MoviesResponse, Error>({
     queryKey: ['movies', query, genre, actor, tmdbPage],
     queryFn: async () => {
-      const params: Record<string, string | number> = { page: tmdbPage };
+      const params: Record<string, string | number | boolean> = {
+        page: tmdbPage,
+        include_adult: false,
+      };
 
       if (query) params.query = query;
       if (genre) params.with_genres = genre;
@@ -53,6 +35,5 @@ export function useMovies({
 
       return data;
     },
-    // keepPreviousData: true,
   });
 }

@@ -1,23 +1,8 @@
-// src/hooks/useMovieDetails.ts
 import { useQuery } from '@tanstack/react-query';
 import { tmdb } from '../services/api';
+import type { MovieDetailsData } from '../types/movieDetails';
 
-export interface MovieDetailsData {
-  id: number;
-  title: string;
-  original_title: string;
-  poster_path: string;
-  release_date: string;
-  overview: string;
-  budget: number;
-  genres: { id: number; name: string }[];
-  runtime: number;
-  vote_average: number;
-  popularity: number;
-  videos: { results: { key: string; name: string; type: string }[] };
-}
-
-export function useMovieDetails(id: string | undefined) {
+export function useMovieDetails(id?: string) {
   return useQuery<MovieDetailsData>({
     queryKey: ['movie', id],
     queryFn: async () => {
@@ -25,7 +10,12 @@ export function useMovieDetails(id: string | undefined) {
       const { data } = await tmdb.get(`/movie/${id}`, {
         params: { append_to_response: 'videos' },
       });
-      return data;
+
+      return {
+        ...data,
+        profit: data.revenue - data.budget,
+        language: data.original_language,
+      };
     },
     enabled: !!id,
   });

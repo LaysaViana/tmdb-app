@@ -1,23 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { tmdb } from '../services/api';
-interface Genre {
-  id: number;
-  name: string;
-}
-interface GenresResponse {
-  genres: Genre[];
-}
-interface Actor {
-  id: number;
-  name: string;
-}
-interface ActorsResponse {
-  results: Actor[];
-}
-interface FiltersData {
-  genres: Genre[];
-  actors: Actor[];
-}
+import type {
+  ActorsResponse,
+  FiltersData,
+  GenresResponse,
+} from '../types/filters';
 
 export function useFilters() {
   return useQuery<FiltersData, Error>({
