@@ -49,19 +49,19 @@ export const PaginationContainer = styled.div`
 `;
 
 interface PageButtonProps {
-  active?: boolean;
+  $active?: boolean;
 }
 
 export const PageButton = styled.button<PageButtonProps>`
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
   border: 1px solid ${({ theme }) => theme.colors.border};
-  background-color: ${({ active, theme }) =>
-    active ? theme.colors.primary : theme.colors.surface};
-  color: ${({ active, theme }) =>
-    active ? theme.colors.textPrimary : theme.colors.textSecondary};
+  background-color: ${({ $active, theme }) =>
+    $active ? theme.colors.primary : theme.colors.surface};
+  color: ${({ $active, theme }) =>
+    $active ? theme.colors.textPrimary : theme.colors.textSecondary};
   cursor: pointer;
-  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
+  font-weight: ${({ $active }) => ($active ? 'bold' : 'normal')};
 
   &:disabled {
     opacity: 0.5;
@@ -72,4 +72,26 @@ export const PageButton = styled.button<PageButtonProps>`
     background-color: ${({ theme }) => theme.colors.primaryHover};
     color: ${({ theme }) => theme.colors.textPrimary};
   }
+`;
+
+export const EmptyContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 100%;
+`;
+
+export const FeedbackMessage = styled.p`
+  font-size: 1.5rem;
+  color: #ffe000;
+  text-align: center;
+`;
+
+export const Footer = styled.footer`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #f1e6fd30;
+  padding: 1rem;
 `;
