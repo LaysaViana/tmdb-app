@@ -6,6 +6,18 @@ O design segue padrões modernos e utiliza Radix Colors para gerenciar temas cla
 
 Para a busca e gerenciamento de dados da API, o projeto utiliza **React Query** em conjunto com **Axios**. O Axios é usado para fazer requisições HTTP de forma simples e eficiente, enquanto o React Query gerencia o cache, o estado de carregamento e a refetch automática dos dados, garantindo uma experiência de usuário mais fluida e performática.
 
+# Funcionalidades
+
+- Busca inteligente de filmes por título, permitindo resultados rápidos e precisos.
+- Filtros avançados por gênero e ator, com destaque visual claro para os itens selecionados, facilitando a navegação.
+- Página de detalhes completa, exibindo sinopse, popularidade, votos, gráficos de avaliação, gênero, data de lançamento, duração, idioma, orçamento, receita e trailer.
+- Layout totalmente responsivo, adaptando-se perfeitamente a dispositivos mobile, tablet e desktop.
+- Suporte a tema claro e escuro, com paleta de cores harmoniosa, gradientes e efeitos visuais sutis que melhoram a experiência do - usuário.
+- Cards interativos e dinâmicos, com overlay, animações suaves e gráficos de avaliação integrados.
+- Paginação eficiente e carregamento otimizado, utilizando React Query para cache, refetch automático e fluidez na navegação.
+
+---
+
 ## Tecnologias Utilizadas
 
 - **React**: Biblioteca JavaScript para criar interfaces de usuário.
