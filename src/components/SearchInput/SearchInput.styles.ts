@@ -1,39 +1,51 @@
 import styled from 'styled-components';
-import { mq } from '../../theme';
+import { mq, mqMax } from '../../../styles/theme';
 import FiSearch from '../../assets/icons/Search_alt_fill.svg';
 
 export const Input = styled.input`
-  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
   border-radius: 4px;
-  border: 1px solid #49474e;
-  width: 448px;
-  height: 25px;
+  border: 1px solid ${({ theme }) => theme.colors.textSecondary};
+  width: 100%;
+  height: 2.5rem;
   font-size: 1rem;
-  background-color: #1a191b;
+  background-color: ${({ theme }) => theme.colors.surface};
+  color: ${({ theme }) => theme.colors.textPrimary};
 
   &:focus {
-    border-color: #8e4ec6;
+    border-color: ${({ theme }) => theme.colors.primaryHover};
+    outline: none;
   }
 
-  ${mq('mobile')} {
-    width: 100%;
+  ${mqMax('mobile')} {
+    font-size: 0.9rem;
+    height: 2.2rem;
+    padding-right: 2.2rem;
   }
 
   ${mq('tablet')} {
-    width: 250px;
     font-size: 1rem;
+    height: 2.5rem;
+    padding-right: 2.5rem;
   }
 
   ${mq('desktop')} {
-    width: 300px;
+    font-size: 1.05rem;
+    height: 2.7rem;
+    padding-right: 2.7rem;
+  }
+
+  ${mq('largeDesktop')} {
     font-size: 1.1rem;
+    height: 3rem;
+    padding-right: 3rem;
   }
 `;
 
 export const Wrapper = styled.div`
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: 448px;
 `;
 
 export const SearchButton = styled.button`
@@ -48,13 +60,29 @@ export const SearchButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #aaa;
+  color: ${({ theme }) => theme.colors.textSecondary};
 
   &:hover {
-    color: #fff;
+    color: ${({ theme }) => theme.colors.textPrimary};
   }
 `;
 
 export const SearchIcon = styled(FiSearch)`
   font-size: 18px;
+
+  ${mqMax('mobile')} {
+    font-size: 16px;
+  }
+
+  ${mq('tablet')} {
+    font-size: 18px;
+  }
+
+  ${mq('desktop')} {
+    font-size: 20px;
+  }
+
+  ${mq('largeDesktop')} {
+    font-size: 22px;
+  }
 `;

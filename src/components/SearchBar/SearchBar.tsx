@@ -1,6 +1,5 @@
-import { Container } from './SearchBar.styles';
+import { Container, IconWrapper } from './SearchBar.styles';
 import SearchInput from '../SearchInput/SearchInput';
-import FilterIcon from '../../assets/icons/Filter.svg';
 import { Button } from '../FilterButton/FilterButton.style';
 
 interface SearchBarProps {
@@ -25,7 +24,7 @@ export default function SearchBar({
         placeholder="Pesquise por filmes"
       />
       <Button onClick={onFilterClick}>
-        <FilterIcon width={20} height={20} color="white" />
+        <IconWrapper />
       </Button>
     </Container>
   );

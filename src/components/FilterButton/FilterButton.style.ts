@@ -1,17 +1,43 @@
 import styled from 'styled-components';
+import { mq, mqMax } from '../../../styles/theme';
 
 export const Button = styled.button`
   padding: 0.5rem 1rem;
   border-radius: 2px;
   border: 1px solid ${({ theme }) => theme.colors.border};
-  background-color: ${({ theme }) => theme.colors.surface};
+  background-color: ${({ theme }) => theme.colors.primaryHover};
   cursor: pointer;
   font-size: 1rem;
-  background-color: #b744f714;
   backdrop-filter: blur(4px);
 
+  svg {
+    fill: white;
+    width: 20px;
+    height: 20px;
+
+    ${mqMax('mobile')} {
+      width: 16px;
+      height: 16px;
+    }
+
+    ${mq('tablet')} {
+      width: 20px;
+      height: 20px;
+    }
+
+    ${mq('desktop')} {
+      width: 22px;
+      height: 22px;
+    }
+
+    ${mq('largeDesktop')} {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
   &:hover {
-    background: #b744f719;
+    background-color: ${({ theme }) => theme.colors.background2};
   }
 `;
 
@@ -32,8 +58,12 @@ export const FilterList = styled.div`
   transition: transform 0.2s;
 `;
 
-export const FilterItem = styled.button`
-  background-color: #8e4ec6;
+interface FilterItemProps {
+  $active?: boolean;
+}
+
+export const FilterItem = styled.button<FilterItemProps>`
+  background-color: ${({ $active }) => ($active ? '#3d223e' : '#8e4ec6')};
   color: ${({ theme }) => theme.colors.textPrimary};
   border: none;
   padding: 0.5rem 1rem;

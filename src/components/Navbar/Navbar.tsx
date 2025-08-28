@@ -29,16 +29,12 @@ export default function Navbar({ darkMode, setDarkMode }: NavbarProps) {
             resetFilters();
           }}
         >
-          <LogoIcon width={300} height={68} />
+          <LogoIcon />
         </LogoWrapper>
         <h1>Movies</h1>
       </Left>
       <ThemeButton onClick={() => setDarkMode(!darkMode)}>
-        {darkMode ? (
-          <SunIcon width={20} height={20} color="white" />
-        ) : (
-          <MoonIcon width={20} height={20} color="white" />
-        )}
+        {darkMode ? <SunIcon /> : <MoonIcon />}
       </ThemeButton>
     </Nav>
   );

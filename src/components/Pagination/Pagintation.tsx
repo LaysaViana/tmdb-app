@@ -1,5 +1,8 @@
 import { PageButton, PaginationContainer } from '../../pages/Home/Home.styles';
 
+import Chevron_Left from '../../assets/icons/Chevron_Left.svg';
+import Chevron_Right from '../../assets/icons/Chevron_Right.svg';
+
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -42,14 +45,14 @@ export default function Pagination({
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        ◀
+        <Chevron_Left />
       </PageButton>
 
       {pages.map((p, index) =>
         p === '...' ? null : (
           <PageButton
             key={index}
-            active={p === currentPage}
+            $active={p === currentPage}
             onClick={() => onPageChange(p as number)}
           >
             {p}
@@ -61,7 +64,7 @@ export default function Pagination({
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        ▶
+        <Chevron_Right />
       </PageButton>
     </PaginationContainer>
   );

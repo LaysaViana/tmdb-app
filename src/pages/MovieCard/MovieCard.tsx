@@ -1,21 +1,20 @@
 import RechartsComponents from '../../components/Recharts/RechartsComponent';
-import { Card, Genres, Info, Overlay, Poster, Title } from './MovieCard.styles';
+import { Card, Genres, Overlay, Poster, Title } from './MovieCard.styles';
 import { useNavigate } from 'react-router-dom';
 
 interface MovieCardProps {
   id: number;
   title?: string;
   posterUrl?: string;
-  releaseDate?: string;
   genres?: { id: number; name: string }[];
   vote_average?: number;
+  releaseDate?: string;
 }
 
 export default function MovieCard({
   id,
   title,
   posterUrl,
-  releaseDate,
   genres = [],
   vote_average = 0,
 }: MovieCardProps) {
@@ -28,8 +27,9 @@ export default function MovieCard({
   return (
     <Card onClick={handleClickDetails}>
       <Poster src={posterUrl} alt={title} />
+      <Title>{title}</Title>
       <Overlay>
-        <Title>{title}</Title>
+        <RechartsComponents voteAverage={vote_average} />
         <Genres>
           {genres.map((g, idx) => (
             <span key={g.id ?? idx}>
@@ -38,13 +38,7 @@ export default function MovieCard({
             </span>
           ))}
         </Genres>
-
-        <RechartsComponents voteAverage={vote_average} />
       </Overlay>
-      <Info>
-        <h3>{title ?? 'Sem título'}</h3>
-        <p>{releaseDate ?? 'Data indisponível'}</p>
-      </Info>
     </Card>
   );
 }

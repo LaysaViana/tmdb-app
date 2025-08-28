@@ -12,6 +12,7 @@ declare module 'styled-components' {
       primaryHover: string;
       border: string;
       accent: string;
+      chart: string;
     };
     spacing: {
       xs: string;

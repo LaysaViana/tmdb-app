@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mq } from '../../theme';
+import { mq, mqMax } from '../../../styles/theme';
 
 export const Card = styled.div`
   width: 150px;
@@ -49,28 +49,16 @@ export const Poster = styled.img`
 export const Info = styled.div`
   padding: 0.5rem;
 
-  h3 {
-    font-size: 0.9rem;
-
-    ${mq('tablet')} {
-      font-size: 1rem;
-    }
-
-    ${mq('desktop')} {
-      font-size: 1.1rem;
-    }
+  ${mq('tablet')} {
+    padding: 0.75rem;
   }
 
-  p {
-    font-size: 0.8rem;
+  ${mq('desktop')} {
+    padding: 1rem;
+  }
 
-    ${mq('tablet')} {
-      font-size: 0.9rem;
-    }
-
-    ${mq('desktop')} {
-      font-size: 1rem;
-    }
+  ${mq('largeDesktop')} {
+    padding: 1.25rem;
   }
 `;
 
@@ -94,14 +82,65 @@ export const Overlay = styled.div`
   ${Card}:hover & {
     opacity: 1;
   }
+  padding: 0.5rem;
+
+  ${mq('tablet')} {
+    padding: 0.75rem;
+  }
+
+  ${mq('desktop')} {
+    padding: 1rem;
+  }
+
+  ${mq('largeDesktop')} {
+    padding: 1.25rem;
+  }
 `;
 
 export const Title = styled.h3`
   font-size: 1rem;
-  margin-bottom: 0.3rem;
+  left: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: Montserrat;
+  color: ${({ theme }) => theme.colors.textPrimary};
+  margin: 0.3rem 0;
+
+  ${mqMax('mobile')} {
+    font-size: 0.85rem;
+  }
+
+  ${mq('tablet')} {
+    font-size: 0.95rem;
+  }
+
+  ${mq('desktop')} {
+    font-size: 1rem;
+  }
+
+  ${mq('largeDesktop')} {
+    font-size: 1.1rem;
+  }
 `;
 
 export const Genres = styled.p`
   font-size: 0.8rem;
   margin-bottom: 0.5rem;
+  color: white;
+
+  ${mqMax('mobile')} {
+    font-size: 0.7rem;
+  }
+
+  ${mq('tablet')} {
+    font-size: 0.75rem;
+  }
+
+  ${mq('desktop')} {
+    font-size: 0.8rem;
+  }
+
+  ${mq('largeDesktop')} {
+    font-size: 0.85rem;
+  }
 `;

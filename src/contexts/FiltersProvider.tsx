@@ -28,7 +28,7 @@ export function FiltersProvider({ children }: { children: ReactNode }) {
     }
 
     setSearchTerm('');
-    setPage(1); // resetar página
+    setPage(1);
   };
 
   const handleSearch = () => {
@@ -54,7 +54,6 @@ export function FiltersProvider({ children }: { children: ReactNode }) {
       const next = !prev;
 
       if (!next) {
-        // Fechou o filtro → limpa seleção
         setSelectedGenre('');
         setSelectedActor('');
       }
