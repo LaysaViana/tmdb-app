@@ -3,12 +3,13 @@ import styled from 'styled-components';
 export const Poster = styled.img`
   width: 300px;
   border-radius: 8px;
+  align-items: flex-start;
 `;
 
-export const Container = styled.div<{ posterUrl: string }>`
+export const Container = styled.div<{ $posterUrl: string }>`
   min-height: 100vh;
   position: relative;
-  background: url(${(props) => props.posterUrl}) no-repeat center/cover;
+  background: url(${(props) => props.$posterUrl}) no-repeat center/cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -64,4 +65,18 @@ export const VideoContainer = styled.div`
     top: 0;
     left: 0;
   }
+`;
+
+export const ContainerPoster = styled.div`
+  display: flex;
+`;
+
+export const ContainerDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const ContainerDetailsItems = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
