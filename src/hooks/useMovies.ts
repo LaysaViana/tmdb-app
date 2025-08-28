@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { tmdb } from '../services/api';
 
-interface Movie {
+export interface Movie {
   id: number;
   title: string;
   poster_path: string;
@@ -11,7 +11,9 @@ interface Movie {
 interface UseMoviesProps {
   query?: string;
   genre?: string;
+  actor?: string;
   page?: number;
+  perPage?: number;
 }
 
 interface MoviesResponse {
@@ -24,19 +26,33 @@ interface MoviesResponse {
 export function useMovies({
   query = '',
   genre = '',
+  actor = '',
   page = 1,
+  perPage = 10,
 }: UseMoviesProps) {
+  const tmdbPage = Math.ceil((page * perPage) / 20);
+
   return useQuery<MoviesResponse, Error>({
-    queryKey: ['movies', query, genre, page], // chave da query
+    queryKey: ['movies', query, genre, actor, tmdbPage],
     queryFn: async () => {
-      const params: Record<string, string | number> = { page };
+      const params: Record<string, string | number> = { page: tmdbPage };
+
       if (query) params.query = query;
       if (genre) params.with_genres = genre;
+      if (actor) params.with_cast = actor;
 
-      const url = query ? '/search/movie' : '/movie/popular';
-      const { data } = await tmdb.get(url, { params });
+      let url = '/movie/popular';
+
+      if (query) {
+        url = '/search/movie';
+      } else if (genre || actor) {
+        url = '/discover/movie';
+      }
+
+      const { data } = await tmdb.get<MoviesResponse>(url, { params });
+
       return data;
     },
-    keepPreviousData: true,
+    // keepPreviousData: true,
   });
 }
