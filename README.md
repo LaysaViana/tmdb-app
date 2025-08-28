@@ -16,8 +16,6 @@ Para a busca e gerenciamento de dados da API, o projeto utiliza **React Query** 
 - Cards interativos e dinâmicos, com overlay, animações suaves e gráficos de avaliação integrados.
 - Paginação eficiente e carregamento otimizado, utilizando React Query para cache, refetch automático e fluidez na navegação.
 
----
-
 ## Tecnologias Utilizadas
 
 - **React**: Biblioteca JavaScript para criar interfaces de usuário.
@@ -26,8 +24,6 @@ Para a busca e gerenciamento de dados da API, o projeto utiliza **React Query** 
 - **Styled Components**: Para componentização de estilos e suporte a temas.
 - **TMDB API**: API pública para informações sobre filmes.
 - **React Query + Axios**: Para gerenciamento de dados assíncronos e cache eficiente.
-
----
 
 ## Instalação
 
