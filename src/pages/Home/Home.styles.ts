@@ -1,17 +1,23 @@
 import styled from 'styled-components';
-import { mq } from '../../theme';
+import { mq, mqMax } from '../../../styles/theme';
 
 export const Grid = styled.div`
   display: grid;
   justify-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   margin-top: 2rem;
 
-  background-color: rgba(235, 234, 248, 0.08);
+  background-color: ${({ theme }) => theme.colors.surface};
   padding: 1rem;
-  border-radius: 12px 12px;
+  border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+
+  ${mqMax('mobile')} {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.8rem;
+    padding: 0.8rem;
+  }
 
   ${mq('tablet')} {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -34,11 +40,23 @@ export const FiltersContainer = styled.div`
   justify-content: center;
   margin: 16px 0;
   position: relative;
+
+  ${mqMax('mobile')} {
+    flex-direction: column;
+    gap: 12px;
+    margin: 12px 0;
+  }
+
+  ${mq('tablet')} {
+    flex-direction: row;
+    gap: 16px;
+  }
 `;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
 `;
 
 export const PaginationContainer = styled.div`
@@ -46,6 +64,12 @@ export const PaginationContainer = styled.div`
   gap: 0.5rem;
   justify-content: center;
   margin: 2rem 0;
+
+  ${mqMax('mobile')} {
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 1.5rem 0;
+  }
 `;
 
 interface PageButtonProps {
@@ -53,15 +77,17 @@ interface PageButtonProps {
 }
 
 export const PageButton = styled.button<PageButtonProps>`
-  padding: 0.5rem 0.75rem;
+  padding: 0.5rem 0.8rem;
   border-radius: 6px;
   border: 1px solid ${({ theme }) => theme.colors.border};
   background-color: ${({ $active, theme }) =>
-    $active ? theme.colors.primary : theme.colors.surface};
+    $active ? theme.colors.primaryHover : theme.colors.surface};
   color: ${({ $active, theme }) =>
-    $active ? theme.colors.textPrimary : theme.colors.textSecondary};
+    $active ? theme.colors.textPrimary : '#ccc'};
   cursor: pointer;
-  font-weight: ${({ $active }) => ($active ? 'bold' : 'normal')};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:disabled {
     opacity: 0.5;
@@ -72,6 +98,21 @@ export const PageButton = styled.button<PageButtonProps>`
     background-color: ${({ theme }) => theme.colors.primaryHover};
     color: ${({ theme }) => theme.colors.textPrimary};
   }
+
+  ${mqMax('mobile')} {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.85rem;
+  }
+
+  ${mq('tablet')} {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  ${mq('desktop')} {
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+  }
 `;
 
 export const EmptyContainer = styled.div`
@@ -80,18 +121,30 @@ export const EmptyContainer = styled.div`
   align-items: center;
   height: 400px;
   width: 100%;
+
+  ${mqMax('mobile')} {
+    height: 300px;
+  }
 `;
 
 export const FeedbackMessage = styled.p`
   font-size: 1.5rem;
-  color: #ffe000;
+  color: ${({ theme }) => theme.colors.chart};
   text-align: center;
-`;
 
-export const Footer = styled.footer`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-top: 1px solid #f1e6fd30;
-  padding: 1rem;
+  ${mqMax('mobile')} {
+    font-size: 1.2rem;
+  }
+
+  ${mq('tablet')} {
+    font-size: 1.3rem;
+  }
+
+  ${mq('desktop')} {
+    font-size: 1.5rem;
+  }
+
+  ${mq('largeDesktop')} {
+    font-size: 1.7rem;
+  }
 `;

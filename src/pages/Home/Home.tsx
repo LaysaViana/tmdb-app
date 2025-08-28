@@ -10,7 +10,6 @@ import {
   EmptyContainer,
   FeedbackMessage,
   FiltersContainer,
-  Footer,
   Grid,
   PageButton,
   PaginationContainer,
@@ -159,7 +158,6 @@ export default function Home() {
             );
           })}
 
-          {/* se não terminar na última, mostra reticências */}
           {endPage < totalPages && <span>...</span>}
 
           <PageButton
@@ -170,7 +168,6 @@ export default function Home() {
           </PageButton>
         </PaginationContainer>
       )}
-      <Footer>2023 © Todos os direitos reservados a Cubos Movies</Footer>
     </>
   );
 }
