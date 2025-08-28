@@ -4,7 +4,6 @@ declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
       background: string;
-      background2: string;
       surface: string;
       textPrimary: string;
       textSecondary: string;
@@ -12,6 +11,7 @@ declare module 'styled-components' {
       primaryHover: string;
       border: string;
       accent: string;
+      chart: string;
     };
     spacing: {
       xs: string;
@@ -21,7 +21,7 @@ declare module 'styled-components' {
     };
     fonts: {
       body: string;
-      heading?: string;
+      heading: string;
     };
   }
 }
