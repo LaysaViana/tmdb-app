@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mq, mqMax } from '../../../styles/theme';
+import { mq, mqMax } from '../../styles/theme';
 
 export const Nav = styled.nav`
   background-color: ${({ theme }) => theme.colors.surface};

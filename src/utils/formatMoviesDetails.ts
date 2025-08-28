@@ -1,4 +1,4 @@
-import type { MovieDetailsData } from '../src/types/movieDetails';
+import type { MovieDetailsData } from '../types/movieDetails';
 
 export const languageMap: Record<string, string> = {
   en: 'Inglês',

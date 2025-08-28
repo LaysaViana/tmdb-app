@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mq, mqMax } from '../../../styles/theme';
+import { mq, mqMax } from '../../styles/theme';
 
 export const Button = styled.button`
   padding: 0.5rem 1rem;

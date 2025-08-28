@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mq, mqMax } from '../../../styles/theme';
+import { mq, mqMax } from '../../styles/theme';
 
 export const ChartContainer = styled.div`
   width: 80px;

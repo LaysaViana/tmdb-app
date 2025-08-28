@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mq, mqMax } from '../../../styles/theme';
+import { mq, mqMax } from '../../styles/theme';
 
 export const Container = styled.div`
   min-height: 100vh;

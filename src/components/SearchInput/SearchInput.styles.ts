@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mq, mqMax } from '../../../styles/theme';
+import { mq, mqMax } from '../../styles/theme';
 import FiSearch from '../../assets/icons/Search_alt_fill.svg';
 
 export const Input = styled.input`

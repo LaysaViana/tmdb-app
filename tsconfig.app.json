@@ -23,5 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "styles/theme.ts", "styles/styled.d.ts", "styled.d.ts"]
+  "include": ["src", "src/styles/theme.ts", "src/styles/styled.d.ts", "styled.d.ts"]
 }

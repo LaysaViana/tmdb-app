@@ -19,7 +19,7 @@ import {
 import { useMovieDetails } from '../../hooks/useMoviesDetails';
 import Loading from '../../components/Loading/Loading';
 import RechartsComponents from '../../components/Recharts/RechartsComponent';
-import { formatMovieDetails } from '../../../utils/formatMoviesDetails';
+import { formatMovieDetails } from '../../utils/formatMoviesDetails';
 
 export default function MovieDetails() {
   const { id } = useParams<{ id: string }>();

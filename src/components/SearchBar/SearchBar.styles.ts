@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { mq } from '../../../styles/theme';
+import { mq } from '../../styles/theme';
 import FilterIcon from '../../assets/icons/Filter.svg';
 
 export const Container = styled.div`
