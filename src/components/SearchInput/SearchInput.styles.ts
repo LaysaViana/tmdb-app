@@ -36,12 +36,25 @@ export const Wrapper = styled.div`
   max-width: 400px;
 `;
 
-export const SearchIcon = styled(FiSearch)`
+export const SearchButton = styled.button`
   position: absolute;
   top: 50%;
   right: 0.8rem;
   transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #aaa;
+
+  &:hover {
+    color: #fff;
+  }
+`;
+
+export const SearchIcon = styled(FiSearch)`
   font-size: 18px;
-  pointer-events: none;
 `;
